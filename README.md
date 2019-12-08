@@ -227,6 +227,44 @@ public void writeFile(Course course,String teacher) throws IOException{
 			}
 ```
 5、ChoiceCourse中的PrintIn类中的PrintIn构造方法
+```
+//为打印课程信息按钮添加监听事件
+jButton.addActionListener(new ActionListener() {
+@Override
+public void actionPerformed(ActionEvent e) {
+	//点击打印课程信息按钮，弹出：打印成功，请至文档查看
+	JOptionPane.showMessageDialog(null, "打印成功，请至文档查看");
+	//如果复选框被选中，调用文件写入方法
+	if(jCheckBox1.isSelected()){
+		try {
+			//调用文件写入方法
+			writeFile(course1,teacher1.getName());
+			} catch (IOException e1) {	
+			e1.printStackTrace();
+			}	
+		}
+```
+
+6、ChoiceCourse中的BackSystem类
+```
+//为退出系统按钮添加监听事件
+jButton.addActionListener(new ActionListener() {
+@Override
+//当事件被触发时，退出系统
+public void actionPerformed(ActionEvent e) {
+	System.exit(0);	
+	}});
+```
+7、ChoiceCourse中的BackCourse类
+```
+//为退课按钮添加监听事件
+@Override
+public void actionPerformed(ActionEvent e) {
+JOptionPane.showMessageDialog(null, "退课成功");
+jTextArea.setText("");
+add(jTextArea);
+jTextArea.setText("我的课程："+"\n"+"暂无课程信息");
+```
 
 **六、运行截图**
 
