@@ -32,6 +32,8 @@
 
 
 1、编写一个UserRegister类，实现用户注册功能，并利用FileWrite将用户注册的信息写入文件。
+
+
     
     （1）将用户名标签jl，用户名文本域zhuname，密码标签jl2，密码域zhupwd，注册按钮jb，重置按钮button添加到JFrame中。
     
@@ -85,10 +87,11 @@
 
 
 **四、核心代码**
-1、将用户名和密码写入:/info/userinfo.txt文件中
+
         
             
      ```
+     //1、将用户名和密码写入:/info/userinfo.txt文件中
     public void writeFile(){
 		try {
 			writer = new FileWriter("D:/info/userinfo.txt");
@@ -102,6 +105,33 @@
 		}
 
        ```
+       
+       //为注册按钮jb添加监听事件：编写三个判断条件
+       JButton jb=new JButton("注册");
+		jb.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				//当用户名或密码输入为空时，弹出提示信息
+				if(zhuname.getText().trim().length()==0||zhupwd.getText().trim().length()==0){
+					JOptionPane.showMessageDialog(null, "用户名密码不允许为空");
+					return;
+				}
+				//当用户名输入超过8位，或者密码超过6位时
+				if(zhuname.getText().trim().length()>=8||zhupwd.getText().trim().length()>=6){
+					JOptionPane.showMessageDialog(null, "用户名不得超过八位，密码不得超过六位");
+					return;
+				}
+				
+				else {
+					JOptionPane.showMessageDialog(null, "注册成功,点击确定后登录");
+					writeFile();
+					UserLogin userLogin=new UserLogin();
+					return;
+				}
+				}
+			});
+       ```
+       
+       
 
 
 
