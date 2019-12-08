@@ -88,7 +88,7 @@
 
 **四、核心代码**
 
-        
+     1、在UserLogin类中   
             
      ```
      //1、将用户名和密码写入:/info/userinfo.txt文件中
@@ -106,6 +106,10 @@
 
        ```
        
+       
+       
+       
+       ```
        //2、为注册按钮jb添加监听事件：编写三个判断条件
        JButton jb=new JButton("注册");
 		jb.addActionListener(new ActionListener(){
@@ -133,7 +137,10 @@
 			});
        ```
        
+       
+       
        ```
+       //3、为重置按钮添加监听事件
        button.setText("重置");
 		button.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
