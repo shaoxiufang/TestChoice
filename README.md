@@ -268,20 +268,37 @@ jTextArea.setText("我的课程："+"\n"+"暂无课程信息");
 
 **五、运行截图**
 
-
-
+1、用户注册页面
 ![](https://github.com/shaoxiufang/TestChoice/raw/master/新建文件夹/1.jpg)
+
+2、注册成功后页面显示
 ![](https://github.com/shaoxiufang/TestChoice/raw/master/新建文件夹/2.jpg)
+
+3、userinfo.txt文档显示
+
 ![](https://github.com/shaoxiufang/TestChoice/raw/master/新建文件夹/3.jpg)
+
+4、用户登录页面
 ![](https://github.com/shaoxiufang/TestChoice/raw/master/新建文件夹/4.jpg)
+
+5、学生选课系统页面
 ![](https://github.com/shaoxiufang/TestChoice/raw/master/新建文件夹/5.jpg)
+
+6、选课成功后页面显示
+
 ![](https://github.com/shaoxiufang/TestChoice/raw/master/新建文件夹/6.jpg)
+
+7、点击打印课程信息页面显示
 ![](https://github.com/shaoxiufang/TestChoice/raw/master/新建文件夹/7.jpg)
+
+8、courseinfo.txt文档显示
 ![](https://github.com/shaoxiufang/TestChoice/raw/master/新建文件夹/8.jpg)
+
+9、退课后页面显示
 ![](https://github.com/shaoxiufang/TestChoice/raw/master/新建文件夹/9.jpg)
+
+10、退出系统页面显示
 ![](https://github.com/shaoxiufang/TestChoice/raw/master/新建文件夹/10.jpg)
-
-
 
 
 **七、实验感想**
