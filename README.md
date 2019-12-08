@@ -85,9 +85,9 @@
 
 
 **四、核心代码**
+1、将用户名和密码写入:/info/userinfo.txt文件中
         
-        
-        1、将用户名和密码写入:/info/userinfo.txt文件中
+            
      ```
     public void writeFile(){
 		try {
