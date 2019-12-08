@@ -42,46 +42,45 @@
     信息："注册成功,点击确定后登 录"。 并实例化UserLogin()类，点击确定后，实现跳转到用户登录页面功能。
       
     （4）为重置按钮添加监听事件：当点击重置按钮时，使用setText("")将文本框和密码框中的内容清空。
+ 
+    （5）编写文件写入方法writeFile()，使用字符串缓冲区stringBuffer,将用户名和密码添加进去并toString()转化成字符串，
+    写入到D:/info/userinfo.txt中，用flush()方法进行刷新。
     
-    （5）编写文件写入方法writeFile()，使用字符串缓冲区stringBuffer,将用户名和密码添加进去并toString()转化成字符串，写入
-    到D:/info/userinfo.txt中，用flush()方法进行刷新。
-    
-    （6）在注册按钮的监听事件用户名和密码均合法的判断中，调用writeFile()，实现将合法的用户名和密码写入文件writer。
-       
+    （6）在注册按钮的监听事件用户名和密码均合法的判断中，调用writeFile()，实现将合法的用户名和密码写入文件writer。      
 
 2、在UserLogin类中添加readFile()方法，获取注册用户信息文件的信息，用于用户登录时的校验。
 
     （1）对登录和重置按钮添加监听事件。
-    
-    （2）编写readFile方法，对D:/info/userinfo.txt文件中的内容进行遍历读取，并添加判断语句，添加到登录按钮的监听事件中，当
-    点击登录按钮时，如果用户名和密码不存在于读取的文件中，显示提示信息："用户名或密码错误"，如果用户名和密码是存在于文件中，调用
-    选课页面ChoiceCourse类。
-    
+    （2）编写readFile方法，对D:/info/userinfo.txt文件中的内容进行遍历读取，并添加判断语句，添加到登录按钮的监听事件中，
+    当点击登录按钮时，如果用户名和密码不存在于读取的文件中，显示提示信息："用户名或密码错误"，如果用户名和密码是存在于文件
+    中，调用选课页面ChoiceCourse类。
     （3）当点击重置按钮时，使用setText("")，将用户名和密码框中的内容清空。
     
  3、在ChoiceCourse类中添加四个类：选课类Select、打印课程信息类PrintIn、退出系统类BackSystem、退课类BackCourse
     
     （1）实例化Course和Teacher
+    （2）在ChoiceCourse中添加文本域：（用于显示已选的课程），卡片选项页面JTabbedPane，使用addTab添加四个内容面板：选课、
+    打印我的课程、退课、退出系统，分别为四个面板添加监听事件，点击不同的按钮实例化不同的类（Select、PrintIn、BackSystem、
+    BackCourse），即点击不同的内容面板跳转至相应页面。
+    （3）在select类中添加四个复选按钮，jCheckBox1，jCheckBox2，jCheckBox3，jCheckBox4，获取课程course的名称设置为这四个
+    文本框显示内容，并为按钮添加监听事件，并增加jCheckBox.isSelected()条件判断，当该复选框被选中时，获取复选框内容，添加至文
+    本域中。
+    （4）编写文件写入方法writeFile(Course course,String teacher)，将course的内容追加到stringbuffer2中，将stringBuffer2.
+    toString()写入到D:/info/courseinfo.txt文件中。
+    （5）在PrintIn类中添加打印课程信息按钮，为该按钮添加监听事件。点击该按钮时，弹出信息：打印成功，请至文档查看。并增加if判
+    断条件,当某个课程已经被选中，调用writeFile(Course course,String teacher)并传递课程与教师参数。
     
-    （1）在ChoiceCourse中添加文本域：（用于显示已选的课程），卡片选项页面JTabbedPane，使用addTab添加四个内容面板：选课、打印我
-    的课程、退课、退出系统，分别为四个面板添加监听事件，点击不同的按钮实例化不同的类（Select、PrintIn、BackSystem、BackCourse），即点
-    击不同的内容面板跳转至相应页面。
+    （6）在BackSystem退出系统类中添加退出系统按钮jButton，为该按钮添加监听事件。当点击该按钮时，调用System.exit(0)，实现系统
+    的退出。
     
-    （2）在select类中添加四个复选按钮，jCheckBox1，jCheckBox2，jCheckBox3，jCheckBox4，获取课程course的名称设置为这四个文本框显示
-    内容，并为按钮添加监听事件，并增加jCheckBox.isSelected()条件判断，当该复选框被选中时，获取复选框内容，添加至文本域中。
-    
-    （3）编写文件写入方法writeFile(Course course,String teacher)，将course的内容追加到stringbuffer2中，将stringBuffer2.toString()写入到
-    D:/info/courseinfo.txt文件中。
-    
-    （4）在PrintIn类中添加打印课程信息按钮，为该按钮添加监听事件。点击该按钮时，弹出信息：打印成功，请至文档查看。并增加if判断条件,当某个课程已经
-    被选中，调用writeFile(Course course,String teacher)并传递课程与教师参数。
-    
-    （5）在BackSystem退出系统类中添加退出系统按钮jButton，为该按钮添加监听事件。当点击该按钮时，调用System.exit(0)，实现系统的退出。
-    
-    （6）在BackCourse退课类中添加退出系统按钮jButton，为该按钮添加监听事件。当点击该按钮时，展示已选课程的文本框内容被清空。
+    （7）在BackCourse退课类中添加退出系统按钮jButton，为该按钮添加监听事件。当点击该按钮时，展示已选课程的文本框内容被清空。
  
 
-**五、核心代码**
+
+
+**四、核心代码**、
+//注册按钮jb添加监听事件
+
 
 
 **六、运行截图**
