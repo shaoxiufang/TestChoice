@@ -106,7 +106,7 @@
 
        ```
        
-       //为注册按钮jb添加监听事件：编写三个判断条件
+       //2、为注册按钮jb添加监听事件：编写三个判断条件
        JButton jb=new JButton("注册");
 		jb.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -115,20 +115,35 @@
 					JOptionPane.showMessageDialog(null, "用户名密码不允许为空");
 					return;
 				}
-				//当用户名输入超过8位，或者密码超过6位时
+				//当用户名输入超过8位，或者密码超过6位时用，
 				if(zhuname.getText().trim().length()>=8||zhupwd.getText().trim().length()>=6){
 					JOptionPane.showMessageDialog(null, "用户名不得超过八位，密码不得超过六位");
 					return;
 				}
-				
+				//当户名和密码输入合法时
 				else {
 					JOptionPane.showMessageDialog(null, "注册成功,点击确定后登录");
+					//写入文件中
 					writeFile();
+					//跳转到用户登录页面
 					UserLogin userLogin=new UserLogin();
 					return;
 				}
 				}
 			});
+       ```
+       
+       ```
+       button.setText("重置");
+		button.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				//动作触发时，将用户名和密码设置为空
+				zhuname.setText("");
+				zhupwd.setText("");
+				//repassword.setText("");
+			}
+		});
+       
        ```
        
        
