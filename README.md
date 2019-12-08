@@ -82,13 +82,10 @@
     的退出。
     
     （7）在BackCourse退课类中添加退出系统按钮jButton，为该按钮添加监听事件。当点击该按钮时，展示已选课程的文本框内容被清空。
- 
-
-
 
 **四、核心代码**
 
-1、在UserLogin类中   
+1、在UserRegister类中   
             
      ```
      //1、将用户名和密码写入:/info/userinfo.txt文件中
@@ -105,10 +102,6 @@
 		}
 
        ```
-       
-       
-       
-       
        ```
        //2、为注册按钮jb添加监听事件：编写三个判断条件
        JButton jb=new JButton("注册");
@@ -136,9 +129,6 @@
 				}
 			});
        ```
-       
-       
-       
        ```
        //3、为重置按钮添加监听事件
        button.setText("重置");
@@ -152,10 +142,90 @@
 		});
        
        ```
+  2、在UserLogin中
+  
+  
+  ```
+  //1、编写文件读取方法
+  public void readFile(){
+		try {
+			//读取D:/info/userinfo.txt中的内容
+			fileReader = new FileReader("D:/info/userinfo.txt");
+			int read = fileReader.read();
+			subname=name.getText();
+			subpwd=password.getText();
+			//遍历读取
+			while(read!=-1){
+				read = fileReader.read();
+				}
+			//判断，如果读取到的信息里面包含用户输入的用户名密码，就跳转到选课页面
+			if(fileReader.toString().contains(subname)&&fileReader.toString().contains(subpwd)){
+				//跳转到选课页面
+				ChoiceCourse choiceCourse=new ChoiceCourse();
+			}
+			else {//否则，弹出信息："用户名或密码错误"
+				JOptionPane.showMessageDialog(null, "用户名或密码错误");
+			}
+		}catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+		}
+		
+  ```
+  ```
+  
+  //2、为确定按钮添加监听事件
+		JButton jb=new JButton("确定");
+		jb.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				//当点击确定时，调用readFile()来判断用户输入的用户名和密码是否存在问题
+				readFile();
+			}
+		});
+  ```
+  ```
+  //3、为重置按钮添加监听事件
+  button.setText("重置");
+		button.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				name.setText("");
+				password.setText("");
+			}
+		});
+  ```
        
-       
+3、ChoiceCourse中的select类中的select()构造方法
+```
+//1、为复选按钮添加监听事件
+	jCheckBox1.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		//如果复选框处于被选中状态，将复选框内容获取到jTextArea中
+		if(jCheckBox1.isSelected()){
+		//将复选框内容获取到jTextArea中
+		stringBuffer.append(course1.getCourseName()).toString();
+		jTextArea.setText(stringBuffer.toString());
+		}}});
+```
 
-
+4、ChoiceCourse中的PrintIn类中的writeFile(Course course,String teacher)方法
+```
+//1、写入"D:/info/courseinfo.txt中
+fileWriter = new FileWriter("D:/info/courseinfo.txt");// 创建文件输出流对象
+fileWriter.write(stringBuffer.toString());// 
+fileWriter.flush(); //刷新 
+//2、传递课程和教师信息     
+public void writeFile(Course course,String teacher) throws IOException{
+//将课程详细信息添加到stringBuffer2中
+	stringBuffer2.append("课程名称:"+
+		course.getCourseName()).append("教室:"+course.getCoursePlace()).append("课程编号:"
+		+course.getCourserId()).append("课程学分:"+course.getCourseScore())
+		.append("课程时间:"+course.getCourseTime()).append("任课老师:"+teacher+"\n").toString();//
+	
+	fileWriter.write(stringBuffer2.toString());
+	fileWriter.flush();
+			}
+```
 
 **六、运行截图**
 
