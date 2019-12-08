@@ -214,18 +214,19 @@
 fileWriter = new FileWriter("D:/info/courseinfo.txt");// 创建文件输出流对象
 fileWriter.write(stringBuffer.toString());// 
 fileWriter.flush(); //刷新 
-//2、传递课程和教师信息     
+//2、有参方法，用于传递课程和教师信息     
 public void writeFile(Course course,String teacher) throws IOException{
 //将课程详细信息添加到stringBuffer2中
 	stringBuffer2.append("课程名称:"+
 		course.getCourseName()).append("教室:"+course.getCoursePlace()).append("课程编号:"
 		+course.getCourserId()).append("课程学分:"+course.getCourseScore())
-		.append("课程时间:"+course.getCourseTime()).append("任课老师:"+teacher+"\n").toString();//
-	
+		.append("课程时间:"+course.getCourseTime()).append("任课老师:"+teacher+"\n").toString();
+		//将stringBuffer2中的内容写入到fileWrite中
 	fileWriter.write(stringBuffer2.toString());
-	fileWriter.flush();
+	fileWriter.flush();//刷新
 			}
 ```
+5、ChoiceCourse中的PrintIn类中的PrintIn构造方法
 
 **六、运行截图**
 
