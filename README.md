@@ -27,13 +27,10 @@
 
 5、	基于Github.com提交实验，包括实验SRC源文件夹程序、README.MD实验报告文档。
 
-
-类的介绍：TestChoice：测试主类；UserRegister用户注册页面；UserLogin：用户登录页面；ChoiceCourse选课类;Course:课程类
-	Person：人类，Student类，Teacher教师类。
-
 **三、实验过程**
 
-
+	类的介绍：TestChoice：测试主类；UserRegister用户注册页面；UserLogin：用户登录页面；ChoiceCourse选课类;Course:课程类
+	Person：人类，Student类，Teacher教师类。
 1、编写一个UserRegister类，实现用户注册功能，并利用FileWrite将用户注册的信息写入文件。
 
 
