@@ -88,7 +88,7 @@
 
 **四、核心代码**
 
-     1、在UserLogin类中   
+1、在UserLogin类中   
             
      ```
      //1、将用户名和密码写入:/info/userinfo.txt文件中
